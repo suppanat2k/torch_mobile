@@ -1,0 +1,8 @@
+login:
+  username: ชื่อผู้ใช้
+  password: รหัสผ่าน
+  sign_in: เข้าสู่ระบบ
+  forgot_password: ลืมรหัสผ่าน
+  register: สมัครสมาชิก
+home:
+  welcome(String name): "ยินดีต้อนรับเข้าสู่ torch mobile คุณ $name!"
