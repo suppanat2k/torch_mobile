@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:torch_mobile/core/middlewares/apis/api_endpoints.dart';
 import 'package:torch_mobile/core/middlewares/apis/api_exceptions.dart';
 import 'package:torch_mobile/core/middlewares/apis/base_api_services.dart';
-import 'package:torch_mobile/core/models/http_response.dart';
+import 'package:torch_mobile/core/models/api_response_model.dart';
 import 'package:torch_mobile/core/utils/global_state_service.dart';
 import 'package:torch_mobile/core/utils/locator.dart';
 
@@ -40,7 +40,7 @@ class APIService extends BaseApiServices {
       );
       if (responseResult(response) is InvalidPermissionException) {
         final responseRefresh = await getRefreshToken();
-        if (responseRefresh is HttpResponse) {
+        if (responseRefresh is ApiResponseModel) {
           response = await http.get(
             getUrl(path: path, query: query),
             headers: headers(),
@@ -68,7 +68,7 @@ class APIService extends BaseApiServices {
       );
       if (responseResult(response) is InvalidPermissionException) {
         final responseRefresh = await getRefreshToken();
-        if (responseRefresh is HttpResponse) {
+        if (responseRefresh is ApiResponseModel) {
           response = await http.post(
             getUrl(path: path),
             headers: headers(),
@@ -97,7 +97,7 @@ class APIService extends BaseApiServices {
       );
       if (responseResult(response) is InvalidPermissionException) {
         final responseRefresh = await getRefreshToken();
-        if (responseRefresh is HttpResponse) {
+        if (responseRefresh is ApiResponseModel) {
           response = await http.put(
             getUrl(path: path),
             headers: headers(),
@@ -126,7 +126,7 @@ class APIService extends BaseApiServices {
       );
       if (responseResult(response) is InvalidPermissionException) {
         final responseRefresh = await getRefreshToken();
-        if (responseRefresh is HttpResponse) {
+        if (responseRefresh is ApiResponseModel) {
           response = await http.delete(
             getUrl(path: path),
             headers: headers(),

@@ -1,32 +1,32 @@
 import 'dart:convert';
 
-HttpResponse httpResponseFromJson(String str) => HttpResponse.fromJson(json.decode(str));
+ApiResponseModel apiResponseModelFromJson(String str) => ApiResponseModel.fromJson(json.decode(str));
 
-String httpResponseToJson(HttpResponse data) => json.encode(data.toJson());
+String apiResponseModelToJson(ApiResponseModel data) => json.encode(data.toJson());
 
-class HttpResponse {
+class ApiResponseModel {
     final int? code;
     final String? message;
     final dynamic data;
 
-    HttpResponse({
+    ApiResponseModel({
         this.code,
         this.message,
         this.data,
     });
 
-    HttpResponse copyWith({
+    ApiResponseModel copyWith({
         int? code,
         String? message,
         dynamic data,
     }) => 
-        HttpResponse(
+        ApiResponseModel(
             code: code ?? this.code,
             message: message ?? this.message,
             data: data ?? this.data,
         );
 
-    factory HttpResponse.fromJson(Map<String, dynamic> json) => HttpResponse(
+    factory ApiResponseModel.fromJson(Map<String, dynamic> json) => ApiResponseModel(
         code: json["code"],
         message: json["message"],
         data: json["data"],

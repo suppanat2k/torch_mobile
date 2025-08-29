@@ -10,13 +10,15 @@
 Initialized packages
 
 ```sh
-- cupertino_icons: 1.0.8
 - intl: 0.20.2
 - i18n: 4.2.5
 - http: 1.5.0
 - get_it: 8.2.0
 - shared_preferences: 2.5.3
 - flutter_dotenv: 5.2.1
+- flutter_bloc: 9.1.1
+- flutter_launcher_icons: 0.14.4
+- flutter_native_splash: 2.4.6
 ```
 
 Add localizations

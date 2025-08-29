@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:torch_mobile/core/enums/global_enum.dart';
 import 'package:torch_mobile/core/middlewares/apis/api_exceptions.dart';
-import 'package:torch_mobile/core/models/http_response.dart';
+import 'package:torch_mobile/core/models/api_response_model.dart';
 import 'package:torch_mobile/core/utils/global_state_service.dart';
 import 'package:torch_mobile/core/utils/locator.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -40,13 +40,13 @@ abstract class BaseApiServices {
     Map<String, dynamic> body = json.decode(response.body);
     switch (response.statusCode) {
       case 200:
-        return HttpResponse(
+        return ApiResponseModel(
           code: response.statusCode,
           message: body['message'],
           data: body['data'],
         );
       case 201:
-        return HttpResponse(
+        return ApiResponseModel(
           code: response.statusCode,
           message: body['message'],
           data: body['data'],
