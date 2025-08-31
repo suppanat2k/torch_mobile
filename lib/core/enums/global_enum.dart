@@ -4,11 +4,11 @@ class AppStorageName {
   static const LOCALE = "locale";
 }
 
-class Locale {
+class AppLocale {
   static const TH = "th";
   static const EN = "en";
 }
 
-class EndpointRoute {
+class EnvName {
   static const String SERVICE_HOST = 'SERVICE_HOST';
 }

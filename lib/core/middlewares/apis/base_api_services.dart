@@ -21,10 +21,9 @@ abstract class BaseApiServices {
 
   Uri getUrl({required String path, Map<String, dynamic>? query}) {
     /// Default hosting.
-    String host = dotenv.env[EndpointRoute.SERVICE_HOST] ?? '';
+    String host = dotenv.env[EnvName.SERVICE_HOST] ?? '';
     switch (path.split('/')[0]) {
       case '':
-
         /// Implement another route.
         break;
     }

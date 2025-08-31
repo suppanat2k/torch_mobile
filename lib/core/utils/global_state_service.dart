@@ -8,7 +8,7 @@ class GlobalStateService {
     _credential = data;
   }
 
-  String _locale = Locale.EN;
+  String _locale = AppLocale.EN;
   String get locale => _locale;
   void setLocale(String code) {
     _locale = code;

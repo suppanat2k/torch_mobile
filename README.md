@@ -24,11 +24,9 @@ Initialized packages
 Add localizations
 
 ```sh
-#Create file .i18n.yaml in /lib/core/i18n
-#Example: en.i18n.yaml | th.i18n.yaml
-
-#Command build generate i18n to Message class
-$ flutter packages pub run build_runner build
+#add localizations to file Example: /lib/base/l10n/app_en.arb, ... etc.
+#after add wording to localizations file run this command for reload localizations
+$ flutter gen-l10n
 ```
 
 Run app
