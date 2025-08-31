@@ -9,19 +9,19 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String home_welcome(String username) {
-    return '欢迎 $username';
-  }
+  String get auth_username => '用户名';
 
   @override
-  String order_item(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count 个物品',
-      one: '1 个物品',
-      zero: '没有物品',
-    );
-    return '$_temp0';
+  String get auth_password => '密码';
+
+  @override
+  String get auth_signin => '登录';
+
+  @override
+  String get auth_forgot_password => '忘记密码';
+
+  @override
+  String home_welcome(String username) {
+    return '欢迎 $username';
   }
 }

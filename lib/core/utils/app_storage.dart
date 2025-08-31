@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:torch_mobile/core/enums/global_enum.dart';
 
-class AppStorageService {
+class AppStorage {
   static late SharedPreferences storage;
   static Future<void> setupAppStorage() async {
     storage = await SharedPreferences.getInstance();

@@ -4,8 +4,8 @@ import 'package:torch_mobile/core/middlewares/apis/api_endpoints.dart';
 import 'package:torch_mobile/core/middlewares/apis/api_exceptions.dart';
 import 'package:torch_mobile/core/middlewares/apis/base_api_services.dart';
 import 'package:torch_mobile/core/models/api_response_model.dart';
-import 'package:torch_mobile/core/utils/global_state_service.dart';
-import 'package:torch_mobile/core/utils/locator.dart';
+import 'package:torch_mobile/core/utils/locator/global_state_service.dart';
+import 'package:torch_mobile/core/utils/locator/app_locator.dart';
 
 class APIService extends BaseApiServices {
   Future<dynamic> getRefreshToken() async {
@@ -17,7 +17,7 @@ class APIService extends BaseApiServices {
         body: {},
         headers: headers(
           tokenExtension:
-              locator<GlobalStateService>().credential?.refreshToken,
+              appLocator<GlobalStateService>().credential?.refreshToken,
         ),
       );
       return await responseResult(response);

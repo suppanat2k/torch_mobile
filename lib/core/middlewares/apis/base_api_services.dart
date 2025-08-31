@@ -4,16 +4,16 @@ import 'package:http/http.dart' as http;
 import 'package:torch_mobile/core/enums/global_enum.dart';
 import 'package:torch_mobile/core/middlewares/apis/api_exceptions.dart';
 import 'package:torch_mobile/core/models/api_response_model.dart';
-import 'package:torch_mobile/core/utils/global_state_service.dart';
-import 'package:torch_mobile/core/utils/locator.dart';
+import 'package:torch_mobile/core/utils/locator/global_state_service.dart';
+import 'package:torch_mobile/core/utils/locator/app_locator.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 abstract class BaseApiServices {
   Map<String, String> headers({String? tokenExtension}) {
-    String token = tokenExtension ?? locator<GlobalStateService>().credential?.accessToken ?? '';
+    String token = tokenExtension ?? appLocator<GlobalStateService>().credential?.accessToken ?? '';
     Map<String, String> headers = {
       'Content-Type': 'application/json',
-      'language': locator<GlobalStateService>().locale,
+      'language': appLocator<GlobalStateService>().locale,
       'Authorization': 'Bearer $token',
     };
     return headers;

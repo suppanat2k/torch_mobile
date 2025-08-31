@@ -9,19 +9,19 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String home_welcome(String username) {
-    return 'Welcome $username';
-  }
+  String get auth_username => 'Username';
 
   @override
-  String order_item(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count items',
-      one: '1 item',
-      zero: 'No items',
-    );
-    return '$_temp0';
+  String get auth_password => 'Password';
+
+  @override
+  String get auth_signin => 'Sign in';
+
+  @override
+  String get auth_forgot_password => 'Forgot password';
+
+  @override
+  String home_welcome(String username) {
+    return 'Welcome $username';
   }
 }

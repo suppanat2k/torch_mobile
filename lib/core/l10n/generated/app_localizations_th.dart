@@ -9,19 +9,19 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
-  String home_welcome(String username) {
-    return 'ยินดีต้อนรับ $username';
-  }
+  String get auth_username => 'ชื่อผู้ใช้งาน';
 
   @override
-  String order_item(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count รายการ',
-      one: '1 รายการ',
-      zero: 'ไม่มีรายการ',
-    );
-    return '$_temp0';
+  String get auth_password => 'รหัสผ่าน';
+
+  @override
+  String get auth_signin => 'เข้าสู่ระบบ';
+
+  @override
+  String get auth_forgot_password => 'ลืมรหัสผ่าน';
+
+  @override
+  String home_welcome(String username) {
+    return 'ยินดีต้อนรับ $username';
   }
 }

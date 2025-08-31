@@ -4,22 +4,20 @@
     "@@context": "Torch Mobile Developer",
     "@@last_modified": "2025-08-31T10:33:00Z",
 
+    "auth_username": "ชื่อผู้ใช้งาน",
+    "@auth_username": {},
+    "auth_password": "รหัสผ่าน",
+    "@auth_password": {},
+    "auth_signin": "เข้าสู่ระบบ",
+    "@auth_signin": {},
+    "auth_forgot_password": "ลืมรหัสผ่าน",
+    "@auth_forgot_password": {},
+
     "home_welcome": "ยินดีต้อนรับ {username}",
     "@home_welcome": {
         "placeholders": {
             "username": {
-                "type": "String",
-                "example": "ผู้ใช้งาน"
-            }
-        }
-    },
-    
-    "order_item": "{count, plural, =0{ไม่มีรายการ} =1{1 รายการ} other{{count} รายการ}}",
-    "@order_item": {
-        "placeholders": {
-            "count": {
-                "type": "int",
-                "example": "1"
+                "type": "String"
             }
         }
     }

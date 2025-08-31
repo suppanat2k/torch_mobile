@@ -3,35 +3,41 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:torch_mobile/core/themes/colors_scheme.dart';
 
-ThemeProviderModel themeProviderModelFromJson(String str) => ThemeProviderModel.fromJson(json.decode(str));
+AppProviderModel appProviderModelFromJson(String str) => AppProviderModel.fromJson(json.decode(str));
 
-String themeProviderModelToJson(ThemeProviderModel data) => json.encode(data.toJson());
+String appProviderModelToJson(AppProviderModel data) => json.encode(data.toJson());
 
-class ThemeProviderModel {
-    final ThemeMode mode;
+class AppProviderModel {
+    final String locale;
+    final ThemeMode themeMode;
     final Pallete pallete;
 
-    ThemeProviderModel({
-        required this.mode,
+    AppProviderModel({
+        required this.locale,
+        required this.themeMode,
         required this.pallete,
     });
 
-    ThemeProviderModel copyWith({
-        ThemeMode? mode,
+    AppProviderModel copyWith({
+        String? locale,
+        ThemeMode? themeMode,
         Pallete? pallete,
     }) => 
-        ThemeProviderModel(
-            mode: mode ?? this.mode,
+        AppProviderModel(
+            locale: locale ?? this.locale,
+            themeMode: themeMode ?? this.themeMode,
             pallete: pallete ?? this.pallete,
         );
 
-    factory ThemeProviderModel.fromJson(Map<String, dynamic> json) => ThemeProviderModel(
-        mode: json["mode"],
+    factory AppProviderModel.fromJson(Map<String, dynamic> json) => AppProviderModel(
+        locale: json["locale"],
+        themeMode: json["theme_mode"],
         pallete: Pallete.fromJson(json["pallete"]),
     );
 
     Map<String, dynamic> toJson() => {
-        "mode": mode,
+        "locale": locale,
+        "them_mode": themeMode,
         "pallete": pallete.toJson(),
     };
 }

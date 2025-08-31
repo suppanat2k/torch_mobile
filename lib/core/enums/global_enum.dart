@@ -7,6 +7,7 @@ class AppStorageName {
 class AppLocale {
   static const TH = "th";
   static const EN = "en";
+  static const ZH = "zh";
 }
 
 class EnvName {

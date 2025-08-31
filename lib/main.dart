@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:torch_mobile/core/l10n/generated/app_localizations.dart';
 import 'package:torch_mobile/core/models/theme_provider_model.dart';
 import 'package:torch_mobile/core/themes/colors_scheme.dart';
 import 'package:torch_mobile/core/themes/theme.dart';
-import 'package:torch_mobile/core/themes/theme_provider.dart';
-import 'package:torch_mobile/core/utils/locator.dart';
+import 'package:torch_mobile/core/utils/app_provider.dart';
+import 'package:torch_mobile/core/utils/locator/app_locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,16 +19,17 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<ThemeProvider>(create: (_) => ThemeProvider()),
-      ],
-      child: BlocBuilder<ThemeProvider, ThemeProviderModel>(
-        builder: (context, themeProvider) {
+      providers: [BlocProvider<AppProvider>(create: (_) => AppProvider())],
+      child: BlocBuilder<AppProvider, AppProviderModel>(
+        builder: (context, appProvider) {
           return MaterialApp(
             title: "Torch Mobile Application for boilerplate mobile!",
-            themeMode: themeProvider.mode,
-            theme: AppTheme.lightTheme(themeProvider.pallete.light),
-            darkTheme: AppTheme.darkTheme(themeProvider.pallete.dark),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: Locale.fromSubtags(languageCode: appProvider.locale),
+            themeMode: appProvider.themeMode,
+            theme: AppTheme.lightTheme(appProvider.pallete.light),
+            darkTheme: AppTheme.darkTheme(appProvider.pallete.dark),
             home: MainScaff(),
           );
         },
@@ -55,7 +57,9 @@ class _MainScaffState extends State<MainScaff> {
               InkWell(
                 onTap: () async {
                   try {
-                    context.read<ThemeProvider>().updatePallete(PalleteGroup.cold);
+                    context.read<AppProvider>().updatePallete(
+                      PalleteGroup.cold,
+                    );
                   } catch (e) {
                     debugPrint('$e');
                   }
@@ -72,7 +76,9 @@ class _MainScaffState extends State<MainScaff> {
               InkWell(
                 onTap: () async {
                   try {
-                    context.read<ThemeProvider>().updatePallete(PalleteGroup.warm);
+                    context.read<AppProvider>().updatePallete(
+                      PalleteGroup.warm,
+                    );
                   } catch (e) {
                     debugPrint('$e');
                   }

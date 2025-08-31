@@ -100,17 +100,35 @@ abstract class AppLocalizations {
     Locale('zh'),
   ];
 
+  /// No description provided for @auth_username.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get auth_username;
+
+  /// No description provided for @auth_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get auth_password;
+
+  /// No description provided for @auth_signin.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get auth_signin;
+
+  /// No description provided for @auth_forgot_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password'**
+  String get auth_forgot_password;
+
   /// No description provided for @home_welcome.
   ///
   /// In en, this message translates to:
   /// **'Welcome {username}'**
   String home_welcome(String username);
-
-  /// No description provided for @order_item.
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, =0{No items} =1{1 item} other{{count} items}}'**
-  String order_item(int count);
 }
 
 class _AppLocalizationsDelegate
