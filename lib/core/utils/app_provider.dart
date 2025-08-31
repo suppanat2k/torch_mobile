@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:torch_mobile/core/enums/global_enum.dart';
-import 'package:torch_mobile/core/models/theme_provider_model.dart';
+import 'package:torch_mobile/core/models/app_provider_model.dart';
 import 'package:torch_mobile/core/themes/color_palettes/cold_colors.dart';
 import 'package:torch_mobile/core/themes/color_palettes/warm_colors.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:torch_mobile/core/l10n/generated/app_localizations.dart';
-import 'package:torch_mobile/core/models/theme_provider_model.dart';
+import 'package:torch_mobile/core/models/app_provider_model.dart';
 import 'package:torch_mobile/core/themes/colors_scheme.dart';
 import 'package:torch_mobile/core/themes/theme.dart';
 import 'package:torch_mobile/core/utils/app_provider.dart';
