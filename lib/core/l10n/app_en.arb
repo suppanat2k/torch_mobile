@@ -3,6 +3,7 @@
     "@@author": "Torch Mobile",
     "@@context": "Torch Mobile Developer",
     "@@last_modified": "2025-08-31T10:33:00Z",
+
     "home_welcome": "Welcome {username}",
     "@home_welcome": {
         "placeholders": {
@@ -12,6 +13,7 @@
             }
         }
     },
+    
     "order_item": "{count, plural, =0{No items} =1{1 item} other{{count} items}}",
     "@order_item": {
         "placeholders": {
