@@ -7,8 +7,8 @@ import 'package:torch_mobile/core/themes/color_palettes/warm_colors.dart';
 
 enum PalleteGroup { warm, cold }
 
-class AppProvider extends Cubit<AppProviderModel> {
-  AppProvider()
+class AppearanceProvider extends Cubit<AppProviderModel> {
+  AppearanceProvider()
     : super(
         AppProviderModel(
           locale: AppLocale.EN,

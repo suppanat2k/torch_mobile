@@ -19,17 +19,19 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider<AppProvider>(create: (_) => AppProvider())],
-      child: BlocBuilder<AppProvider, AppProviderModel>(
-        builder: (context, appProvider) {
+      providers: [
+        BlocProvider<AppearanceProvider>(create: (_) => AppearanceProvider()),
+      ],
+      child: BlocBuilder<AppearanceProvider, AppProviderModel>(
+        builder: (context, appearanceProvider) {
           return MaterialApp(
             title: "Torch Mobile Application for boilerplate mobile!",
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
-            locale: Locale.fromSubtags(languageCode: appProvider.locale),
-            themeMode: appProvider.themeMode,
-            theme: AppTheme.lightTheme(appProvider.pallete.light),
-            darkTheme: AppTheme.darkTheme(appProvider.pallete.dark),
+            locale: Locale.fromSubtags(languageCode: appearanceProvider.locale),
+            themeMode: appearanceProvider.themeMode,
+            theme: AppTheme.lightTheme(appearanceProvider.pallete.light),
+            darkTheme: AppTheme.darkTheme(appearanceProvider.pallete.dark),
             home: MainScaff(),
           );
         },
@@ -57,7 +59,7 @@ class _MainScaffState extends State<MainScaff> {
               InkWell(
                 onTap: () async {
                   try {
-                    context.read<AppProvider>().updatePallete(
+                    context.read<AppearanceProvider>().updatePallete(
                       PalleteGroup.cold,
                     );
                   } catch (e) {
@@ -76,7 +78,7 @@ class _MainScaffState extends State<MainScaff> {
               InkWell(
                 onTap: () async {
                   try {
-                    context.read<AppProvider>().updatePallete(
+                    context.read<AppearanceProvider>().updatePallete(
                       PalleteGroup.warm,
                     );
                   } catch (e) {
