@@ -5,6 +5,7 @@ import 'package:torch_mobile/core/models/app_provider_model.dart';
 import 'package:torch_mobile/core/themes/colors_scheme.dart';
 import 'package:torch_mobile/core/themes/theme.dart';
 import 'package:torch_mobile/core/utils/app_provider.dart';
+import 'package:torch_mobile/core/utils/app_router.dart';
 import 'package:torch_mobile/core/utils/locator/app_locator.dart';
 
 void main() async {
@@ -24,15 +25,16 @@ class MainApp extends StatelessWidget {
       ],
       child: BlocBuilder<AppearanceProvider, AppProviderModel>(
         builder: (context, appearanceProvider) {
-          return MaterialApp(
+          return MaterialApp.router(
             title: "Torch Mobile Application for boilerplate mobile!",
+            debugShowCheckedModeBanner: false,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             locale: Locale.fromSubtags(languageCode: appearanceProvider.locale),
             themeMode: appearanceProvider.themeMode,
             theme: AppTheme.lightTheme(appearanceProvider.pallete.light),
             darkTheme: AppTheme.darkTheme(appearanceProvider.pallete.dark),
-            home: MainScaff(),
+            routerConfig: AppRouter.routes,
           );
         },
       ),
@@ -87,6 +89,26 @@ class _MainScaffState extends State<MainScaff> {
                 },
                 child: Text(
                   'warm',
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).extension<ColorsScheme>()?.primary,
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () async {
+                  try {
+                    ThemeMode mode = context.read<AppearanceProvider>().state.themeMode;
+                    context.read<AppearanceProvider>().updateThemeMode(
+                      mode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light,
+                    );
+                  } catch (e) {
+                    debugPrint('$e');
+                  }
+                },
+                child: Text(
+                  'dark mode / light mode',
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,

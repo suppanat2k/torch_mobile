@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.torch_mobile"
+    namespace = "com.torch_mobile"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,13 +21,37 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.torch_mobile"
+        applicationId = "com.torch_mobile"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+    }
+
+    flavorDimensions "default"
+    productFlavors { 
+        prod {
+            dimension "default"
+            manifestPlaceholders = [
+                appName: "TORCH MOBILE", 
+            ]
+        }
+        stg {
+            dimension "default"
+            applicationIdSuffix ".stg"
+            manifestPlaceholders = [
+                appName: "[STG] TORCH MOBILE", 
+            ]
+        }
+        dev {
+            dimension "default"
+            applicationIdSuffix ".dev"
+            manifestPlaceholders = [
+                appName: "[DEV] TORCH MOBILE", 
+            ]
+        }
     }
 
     buildTypes {
